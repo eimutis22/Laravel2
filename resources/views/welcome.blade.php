@@ -79,7 +79,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Coments
+                    Comments
+                </div>
+
+                <div>
+                        @foreach ($comments as $comment)
+                        <tr>
+                            <p><strong>{{ $comment->CommentText }}</strong></p>
+                    
+                        @endforeach
                 </div>
 
                 <div class="links">

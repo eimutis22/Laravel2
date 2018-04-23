@@ -14,8 +14,7 @@ class CommentsController extends Controller
     }
 
     public function displayComments() {
-        echo "Comment List <br>";
         $comments = DB::select('select * from CommentTbl');
-        return view('show-comments',['comments'=>$comments]);
+        return view('welcome',['comments'=>$comments]);
     }
 }
