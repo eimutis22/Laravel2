@@ -21,3 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/comments','CommentsController@displayComments');
 Route::get('/','CommentsController@displayComments');
+
+Route::post('/writecomment','CommentsController@writeComment');
+
+

@@ -17,4 +17,13 @@ class CommentsController extends Controller
         $comments = DB::select('select * from CommentTbl');
         return view('welcome',['comments'=>$comments]);
     }
+
+    public function writeComment(Request $request) {
+        $comment = $request->input('comment');
+
+        DB::insert('INSERT INTO CommentTbl (CommentText) values(?)',["$comment"]);
+
+        return "Comment submitted!";
+        // return redirect()->route('welcome'); // Route not defined
+    }
 }
