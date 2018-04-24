@@ -22,18 +22,11 @@ class CommentsController extends Controller
         $comment = $request->input('comment');
 
         DB::insert('INSERT INTO CommentTbl (CommentText) values(?)',["$comment"]);
-
-        return "Comment submitted!<br><a href='/'>Go home</a>";
-        // return redirect()->route('welcome'); // Route not defined
+        return redirect('/');
     }
 
     public function deleteComment($cmtId){
         DB::delete('delete from CommentTbl where CommentId = ?',[$cmtId]);
-        echo "Record deleted successfully.<br/>";
-
-        $comments = DB::select('select * from CommentTbl');
-        return view('welcome',['comments'=>$comments]);
-        
-    // echo '<a href="/delete-records">Click Here</a> to go back.';
+        return redirect('/');
     }
 }
