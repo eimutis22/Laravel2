@@ -86,7 +86,9 @@
                 <div>
                     @foreach ($comments as $comment)
                     <tr>
-                        <p><strong>{{ $comment->CommentText }}</strong></p>
+                        <p><strong>{{ $comment->CommentText }}</strong> - 
+                            <a href="/deletecomment/{{$comment->CommentId}}">X</a>
+                        </p>
                 
                     @endforeach
                 </div>

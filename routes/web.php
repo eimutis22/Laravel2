@@ -24,4 +24,6 @@ Route::get('/','CommentsController@displayComments');
 
 Route::post('/writecomment','CommentsController@writeComment');
 
+Route::get('/deletecomment/{username}','CommentsController@deleteComment');
+
 
