@@ -26,7 +26,11 @@ class CommentsController extends Controller
     }
 
     public function deleteComment($cmtId){
-        DB::delete('delete from CommentTbl where CommentId = ?',[$cmtId]);
-        return redirect('/');
+        if(\Auth::check()) {
+            DB::delete('delete from CommentTbl where CommentId = ?',[$cmtId]);
+            return redirect('/');
+        } 
+
+        return redirect('/login');
     }
 }

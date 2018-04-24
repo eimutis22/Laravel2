@@ -71,6 +71,11 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+                        <a  class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
@@ -86,12 +91,27 @@
                 <div>
                     @foreach ($comments as $comment)
                     <tr>
-                        <p><strong>{{ $comment->CommentText }}</strong> - 
-                            <a href="/deletecomment/{{$comment->CommentId}}">X</a>
+                        <p><strong>{{ $comment->CommentText }}</strong> 
+                            @auth - <a href="/deletecomment/{{$comment->CommentId}}">X</a>@endauth
                         </p>
                 
                     @endforeach
                 </div>
+
+                @auth
+                    <form action="/writecomment" method="post">
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                        <input class="form-control" type="text" name="comment">
+                        <input class="btn" type="submit" value="Submit">
+                    </form>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                @else
+                    <a href="{{ route('login') }}">Login to write comment</a>
+                @endauth
+
 
             </div>
 
