@@ -91,9 +91,9 @@
                 <div>
                     @foreach ($comments as $comment)
                     <tr>
-                        <p><strong>{{ $comment->CommentText }}</strong> <img src="{{URL::asset($comment->Image)}}" alt="Image"/><p>{{asset($comment->Image)}}</p>
+                        <p><strong>{{ $comment->CommentText }}</strong>
                             @auth - <a href="/deletecomment/{{$comment->CommentId}}">X</a>@endauth
-                        </p>
+                        </p>   
                 
                     @endforeach
                 </div>

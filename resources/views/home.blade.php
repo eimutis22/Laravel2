@@ -16,7 +16,7 @@
                     <form action="/writecomment" method="post">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <input class="form-control" type="text" name="comment" placeholder="Comment.."> <br>
-                        <input type="file" name="comment-image">
+                        <!-- <input type="file" name="comment-image"> -->
                         <input class="btn btn-block btn-success" type="submit" value="Submit Comment">
                     </form>
 
