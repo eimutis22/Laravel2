@@ -20,8 +20,9 @@ class CommentsController extends Controller
 
     public function writeComment(Request $request) {
         $comment = $request->input('comment');
+        $commentImage = $request->file('comment-image')->openFile;
 
-        DB::insert('INSERT INTO CommentTbl (CommentText) values(?)',["$comment"]);
+        DB::insert('INSERT INTO CommentTbl (CommentText, Image) values(?,?)',["$comment", $commentImage]);
         return redirect('/');
     }
 
