@@ -70,7 +70,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Write Comment</a>
                         <a  class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
@@ -80,6 +80,7 @@
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
                     @endauth
+                        <a href="{{ route('contact') }}">Contact</a>
                 </div>
             @endif
 
@@ -92,7 +93,7 @@
                     @foreach ($comments as $comment)
                     <tr>
                         <p><strong>{{ $comment->CommentText }}</strong>
-                            @auth - <a href="/deletecomment/{{$comment->CommentId}}">X</a>@endauth
+                            @auth - <a href="/deletecomment/{{$comment->CommentId}}"><button class="btn">Delete</button></a>@endauth
                         </p>   
                 
                     @endforeach

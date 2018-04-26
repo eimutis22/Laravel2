@@ -28,7 +28,7 @@ Route::get('/deletecomment/{username}','CommentsController@deleteComment');
 
 Route::get('/contact',function() {
     return view('contact');
-});
+})->name('contact');
 
 
 
